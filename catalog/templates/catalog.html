@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+{% include "header.html" %}
+{% block content %}
+</div>
+<img class="main-img" src="{{url_for('static', filename = 'explore.jpeg')}}"> 
+<div class="call-to-action text-center">
+	<h1> Explore Our Universe </h1>
+
+	<h2> See below for categories </h2>
+</div>
+<div class="container">
+{% for item in categories %}
+<div class="col-md-6 category">
+	<h1 class="text-center title"> {{item.name}} </h1>
+	<a href="{{url_for('showItems', category_id = item.id)}}">
+		<img class="category-item-img" src="{{item.picture_url}}"> </img>
+	</a> 
+</div>
+{%endfor%}
+
+{% endblock %}
+</body>
+</html>

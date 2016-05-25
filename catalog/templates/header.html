@@ -1,0 +1,15 @@
+<div class="row top-menu">
+	<div class="col-md-6">
+		<a href="{{url_for('showCategories')}}">
+			<span class="glyphicon glyphicon-home" aria-hidden="true"> CatalogApp </span>
+		</a>
+	</div>
+	<div class="col-md-6 text-right">
+		{% if not login_session['logged-in'] %}
+					<a href="{{url_for('login')}}"> Login </a>
+		{% else %}
+					<a href="{{url_for('disconnect')}}"> Disconnect </a>
+					<img class="user-picture-disconnect" src="{{login_session['picture']}}"> </img>
+		{% endif %}
+	</div>	
+</div>

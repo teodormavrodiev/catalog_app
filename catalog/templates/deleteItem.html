@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% include "header.html" %}
+{% block content %}
+<h1> Are you sure you want to delete {{item.name}} </h1>
+<img style= "width: 50%;"class="category-item-img" src="{{item.picture_url}}"> </img>
+<form action="{{url_for('deleteItem', category_id = category_id, item_id = item.id)}}" method = "post"> 
+<input type="submit" value="Yes, Delete!">
+
+</form>
+<div  style="margin-bottom:50px;">
+<a href="{{url_for('showItems', category_id = category_id)}}"> Back to Items </a>
+</div> 
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<html>
+<body>
+<h1> Add a new category item by filling this form </h1>
+<form action="{{url_for('addItem', category_id = category_id)}}" method = "post"> 
+
+<p> Name: </p>
+	<input type="text" size="30" name = "name"> 
+<p> Description: </p>
+	<textarea type="text" rows="5" cols="100" name = "description"> </textarea>
+<p> A Picture url goes here: </p>
+	<input type="text" size="100" name = "picture_url">
+
+<br>
+<br>
+<input type="submit" value="add">
+
+</form>
+
+<a href="{{url_for('showItems', category_id = category_id)}}"> Back to Items </a>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% include "header.html" %}
+{% block content %}
+<h1 class="text-center category-item-name"> {{items[1].category.name}} </h1>
+
+{% for item in items %}
+
+<div class="col-md-4 item">
+	<h2 class="text-center title"> {{item.name}} </h2>
+	<a href="{{url_for('showDetails', category_id = category_id, item_id = item.id)}}">
+		<img class="category-item-img" src="{{item.picture_url}}"> </img> 
+	</a>
+	<a class="edit-delete" href="{{url_for('editItem', category_id = category_id, item_id = item.id)}}">
+		<span class="glyphicon glyphicon-pencil" aria-hidden="true"> Edit </span>
+	</a>
+	<a href="{{url_for('deleteItem', category_id = category_id, item_id = item.id)}}">
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"> Delete </span>
+	</a>
+</div>
+{%endfor%}
+<div class="row">
+</div>
+<div style="margin-bottom:50px;">
+	<h3><a href="{{url_for('addItem', category_id = category_id)}}"> Add an Item </a> </h3>
+</div>
+
+{% endblock %}
